@@ -1,0 +1,47 @@
+auth:
+  #  baseurl: http://10.4.138.71:7003/authorization-server-v1
+  token:
+    url: ${auth.baseurl}/oauth/token
+    client-id: bamobile
+    client-secret: $2a$08$kbhBbzZqcTGuNrHoN6MCTuV.2gL5AI0Uk5EEIKqg4mO9dq8H4I7Mq
+    public-key-path: "-----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnUr5f5eGwmPo9gVfOBA9yKE1ip1ca4LPEyWZVi2kPPdoxQBkBWSPCv51sJVMvVthXNgIxf34TyElsY2JE/mGqrA0lCXgceyqbTJkwM9z3zD/I9iMfgsfD1409k3dKpyE9gZUZFyKz4wfFd84nBGK+UcDo9EvaeEO94/ACKTjO4AZrR1+MqbA3KC3lLAa9DxQNAXPWgDBw4kbFUc7Uie7PiI2PKDbI/Sse0qadrFi8nSqjGmhUsmIVe6b0nE9bF6e3mDkvligdW5m4dSG8ZKwUeZxFvUpLnZvpZx2kfxr42Hph6h2zfsWCxfRh3aAuSWtt7mkKPOWOrrOAK5SJ5fJpwIDAQAB
+    -----END PUBLIC KEY-----"
+
+keys:
+  path:
+    private: auth-server-private-key.txt
+    public: auth-server-public-key.txt
+
+
+cloudinary:
+  cloud-name: dkhysaggr
+  api-key: 858658445417344
+  api-secret: 9YGs60hUx-PLtIS3_taQ4e_f3hc
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    #    password: h7q5KPxwYIbfHyk2AjVuQA0qHzoMl4Zb
+    password: pass
+    driver-class-name: org.postgresql.Driver
+#    jndi: jdbc/bamobile
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    #    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+props:
+  use-jndi: N
+
+paystack:
+  secret-key: sk_test_a309a5a6e845d183d5980d5f410cbb919837e4a8
+  initiate-url: https://api.paystack.co/transaction/initialize
+  verify-url: https://api.paystack.co/transaction/verify/{reference}
