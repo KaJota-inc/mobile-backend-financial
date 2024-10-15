@@ -30,7 +30,7 @@ public class GivingController {
     GivingService givingService;
 
     @GetMapping(value = "/{reference}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("hasRole('ROLE_BAM:USER')")
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<Giving>> fetchGivingTransaction(
             @PathVariable String reference,
             HttpServletRequest httpServlet,
@@ -44,7 +44,7 @@ public class GivingController {
     }
 
     @GetMapping(value = "all/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("hasRole('ROLE_BAM:USER')")
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<List<Giving>>> fetchAllGivingTransaction(
             @PathVariable String userId,
             HttpServletRequest httpServlet,

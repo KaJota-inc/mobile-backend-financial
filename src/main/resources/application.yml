@@ -1,7 +1,7 @@
 server:
   port: 9084
   servlet:
-    context-path: /bam-main-financial
+    context-path: /kajota-main-financial
 
 spring:
   profiles:

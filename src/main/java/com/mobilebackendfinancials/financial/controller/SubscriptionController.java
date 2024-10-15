@@ -30,7 +30,7 @@ public class SubscriptionController {
     SubscriptionService subscriptionService;
 
     @GetMapping(value = "/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("hasRole('ROLE_BAM:USER')")
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<FetchLiveSubscriptionDto.ResponseDto>> fetchLiveSubscription(
             @PathVariable String userId,
             HttpServletRequest httpServlet,

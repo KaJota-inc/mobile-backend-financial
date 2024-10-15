@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,7 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<PlaceOrderDto.ResponseDto>> placeOrder(
             @RequestBody @Valid PlaceOrderDto.RequestDto requestDto,
             Principal principal,
@@ -43,6 +45,7 @@ public class OrderController {
     }
 
     @GetMapping("/get-user-orders")
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<FetchUserOrdersDto.ResponseDto>> fetchAllUserOrders(
             @RequestBody @Valid FetchUserOrdersDto.RequestDto requestDto,
             HttpServletRequest httpServlet,
@@ -56,6 +59,7 @@ public class OrderController {
     }
 
     @GetMapping("/get-order")
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<FetchOrderDto.ResponseDto>> fetchAllUserOrders(
             @RequestBody @Valid FetchOrderDto.RequestDto requestDto,
             HttpServletRequest httpServlet,
@@ -69,6 +73,7 @@ public class OrderController {
     }
 
     @PutMapping
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<UpdateOrderStatusDto.ResponseDto>> changeOrderStatus(
             @RequestBody @Valid UpdateOrderStatusDto.RequestDto requestDto,
             HttpServletRequest httpServlet,

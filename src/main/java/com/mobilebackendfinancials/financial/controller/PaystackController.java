@@ -35,7 +35,7 @@ public class PaystackController {
     PaystackBreakService paystackBreakService;
 
     @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("hasRole('ROLE_BAM:USER')")
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<PaystackInitiateDto.ResponseDto>> initiatePayment(
             @RequestBody @Valid PaymentInitiationDto.RequestDto requestDto,
             HttpServletRequest httpServlet,
@@ -49,7 +49,7 @@ public class PaystackController {
     }
 
     @GetMapping(value = "/{reference}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("hasRole('ROLE_BAM:USER')")
+    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<PaystackVerifyDto.ResponseDto>> verifyPaystack(
             @PathVariable String reference,
             HttpServletRequest httpServlet,
@@ -63,7 +63,7 @@ public class PaystackController {
     }
 
     @PostMapping(value = "callback", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-//    @PreAuthorize("hasRole('ROLE_BAM:USER')")
+//    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<Boolean>> callbackPost(
             @RequestBody @Valid PaystackVerifyDto.ResponseDto requestDto,
             HttpServletRequest httpServlet,
@@ -77,7 +77,7 @@ public class PaystackController {
     }
 
     @GetMapping(value = "callback", produces = MediaType.APPLICATION_JSON_VALUE)
-//    @PreAuthorize("hasRole('ROLE_BAM:USER')")
+//    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<Object>> callbackFetch(
             @RequestParam String trxref,
             @RequestParam String reference,
