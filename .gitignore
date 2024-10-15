@@ -33,5 +33,6 @@ build/
 .vscode/
 
 
-###SECRETS###
-*-key.txt
+### SECRETS ###
+/src/main/resources/*-private-key.txt
+/src/main/resources/*-public-key.txt

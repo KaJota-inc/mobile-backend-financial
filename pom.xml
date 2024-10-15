@@ -8,14 +8,14 @@
         <version>2.7.16</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.bibleappmobile</groupId>
+    <groupId>com.mobilebackendfinancial</groupId>
     <artifactId>financial</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>FinancialBackend</name>
-    <description>SQL Backend for Bible App Mobile</description>
+    <description>SQL Backend for mobile financial</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
