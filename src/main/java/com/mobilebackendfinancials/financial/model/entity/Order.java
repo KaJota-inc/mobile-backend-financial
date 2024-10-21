@@ -59,6 +59,10 @@ public class Order {
     @Column(name="recipient_phonenumber", nullable = false)
     private String recipientPhoneNumber;
 
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private PaymentMethod paymentMethod;
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<OrderItem> orderItem;
