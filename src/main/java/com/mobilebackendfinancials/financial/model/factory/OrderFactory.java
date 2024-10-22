@@ -15,6 +15,7 @@ public class OrderFactory {
                 .recipientPhoneNumber(requestDto.getRecipientPhoneNumber())
                 .shippingAddress(requestDto.getShippingAddress())
                 .userId(requestDto.getUserId())
+                .paymentType(requestDto.getPaymentType())
                 .price(requestDto.getPrice())
                 .status(OrderStatus.COLLECTED)
                 .orderStatusChangeTime(Instant.now())
