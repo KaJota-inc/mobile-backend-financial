@@ -1,5 +1,7 @@
 package com.mobilebackendfinancials.financial.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -10,9 +12,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@NoArgsConstructor
 @Data
 @Accessors(chain = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "FUNDING_ACTIVITIES")
 public class FundingActivities {
 
@@ -20,14 +24,11 @@ public class FundingActivities {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(name = "user_id", nullable = false)
+    private String userId;
+
     @Column(name = "uri", nullable = false)
     private String uri;
-
-    @Column(name = "date", nullable = false)
-    private LocalDate date;
-
-    @Column(name = "time", nullable = false)
-    private LocalTime time;
 
     @Column(name = "amount", nullable = false)
     private BigDecimal amount;
@@ -42,6 +43,12 @@ public class FundingActivities {
     private String title;
 
     @Column(name = "currency", nullable = false)
-    private String currency;
+    private String ccy;
+
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
+
+    @Column(name = "time", nullable = false)
+    private LocalTime time;
 
 }

@@ -1,30 +1,43 @@
 package com.mobilebackendfinancials.financial.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mobilebackendfinancials.financial.constant.CardType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+@Builder
 public class PaymentMethod {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private String userId;
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false)
+    @JsonBackReference
+    private Order order;
 
-    @Column(name = "payment_type_id", nullable = false)
-    private String paymentTypeId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "payment_type", nullable = false)
+    private PaymentType paymentType; // e.g Card, Paypal, Apple etc
 
     @Column(name = "provider")
-    private String provider;
+    private String provider; //Optional
 
     @Column(name = "card_type")
-    private CardType cardType;
+    private CardType cardType; //Optional
 
-    @Column(name = "account_number", nullable = false)
-    private String accountNumber;
+    @Column(name = "account_Id", nullable = false)
+    private String accountId;
 
 }
