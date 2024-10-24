@@ -1,5 +1,6 @@
 package com.mobilebackendfinancials.financial.model.dto.request;
 
+import com.mobilebackendfinancials.financial.constant.PaymentType;
 import com.mobilebackendfinancials.financial.model.entity.OrderItem;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -32,6 +33,8 @@ public class PlaceOrderDto {
         private List<OrderItem> orderItems;
         @NotNull(message = "price cannot be null")
         private BigDecimal price;
+        @NotNull(message = "paymentType cannot be null")
+        private PaymentType paymentType;
         @NotBlank(message = "currency cannot be blank")
         private String ccy;
     }

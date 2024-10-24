@@ -2,6 +2,7 @@ package com.mobilebackendfinancials.financial.model.entity;
 
 import com.mobilebackendfinancials.financial.constant.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.mobilebackendfinancials.financial.constant.PaymentType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -59,9 +60,8 @@ public class Order {
     @Column(name="recipient_phonenumber", nullable = false)
     private String recipientPhoneNumber;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
-    private PaymentMethod paymentMethod;
+    @Column(name="payment_type", nullable = false)
+    private PaymentType paymentType;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference

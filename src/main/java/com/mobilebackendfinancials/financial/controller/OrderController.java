@@ -30,7 +30,7 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping
-    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
+//    @PreAuthorize("hasRole('ROLE_KAJOTA:USER')")
     public ResponseEntity<ResponseDTO<PlaceOrderDto.ResponseDto>> placeOrder(
             @RequestBody @Valid PlaceOrderDto.RequestDto requestDto,
             Principal principal,
